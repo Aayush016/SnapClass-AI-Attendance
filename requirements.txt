@@ -1,0 +1,18 @@
+# Run this file for checking all requirements: pip install -r requirements.txt
+numpy
+pandas
+
+# Used in Face Recognision
+scikit-learn
+dlib-bin
+git+https://github.com/ageitgey/face_recognition_models
+setuptools<70.0.0
+
+# Database
+supabase
+bcrypt # Used for hashing
+
+segno
+pillow
+
+streamlit
