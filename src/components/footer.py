@@ -1,0 +1,10 @@
+import streamlit as st
+
+def footer_home():
+    
+    logo_url = "https://i.ibb.co/YTYGn5qV/logo.png"
+    st.markdown(f"""
+                <div style='margin-top: 30px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 6px;'>
+                    <p>Created with ❤️ by Aayush</p>
+                </div>
+                """, unsafe_allow_html=True)
