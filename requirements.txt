@@ -1,3 +1,4 @@
+streamlit
 # Run this file for checking all requirements: pip install -r requirements.txt
 numpy
 pandas
@@ -15,7 +16,6 @@ bcrypt # Used for hashing
 segno
 pillow
 
-streamlit
 
 librosa
 resemblyzer
