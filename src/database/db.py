@@ -87,3 +87,32 @@ def create_attendance(logs):
 def get_attendance_for_teacher(teacher_id):
     response = supabase.table('attendance_logs').select("*, subjects!inner(*)").eq('subjects.teacher_id', teacher_id).execute()
     return response.data
+
+
+def get_students_by_subject(subject_id):
+    # Step 1: Get student IDs enrolled in this subject
+    enrollment_response = (
+        supabase.table("subject_students")
+        .select("student_id")
+        .eq("subject_id", subject_id)
+        .execute()
+    )
+
+    student_ids = [
+        row["student_id"]
+        for row in enrollment_response.data
+    ]
+
+    # Step 2: If no students are enrolled, return an empty list
+    if not student_ids:
+        return []
+
+    # Step 3: Fetch those students' details
+    students_response = (
+        supabase.table("students")
+        .select("student_id, name")
+        .in_("student_id", student_ids)
+        .execute()
+    )
+
+    return students_response.data
